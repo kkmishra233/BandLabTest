@@ -1,0 +1,4 @@
+BandLab\TestUserShout\BaseFramework\BaseMethods.class
+BandLab\TestUserShout\BaseMapper\BaseMapper.class
+BandLab\TestUserShout\BusinessAction\ActionMethods.class
+BandLab\TestUserShout\TestRunner.class
