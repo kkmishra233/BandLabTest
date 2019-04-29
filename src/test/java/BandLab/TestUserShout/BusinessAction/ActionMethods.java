@@ -41,10 +41,7 @@ public class ActionMethods extends BaseMethods{
 
 	public void SignUp() throws Exception {
 		try {
-			submitSignUp();
-			setUpNewUserProfileWithDeaultDetail();
-			staticWait();
-			userLogOut();
+			submitSignUp();			
 		}
 		catch(Exception exception) {
 			exception.printStackTrace();
@@ -54,31 +51,38 @@ public class ActionMethods extends BaseMethods{
 
 	public void submitSignUp() throws Exception {
 		try {
-			
+			waitForElementToBeAppear(By.xpath("//button[@ng-disabled='waitingForAuth || !signUpForm.$valid || signUpForm.$submitted || signUpForm.$pristine']"));
 			waitForElementToBeClickable(By.xpath("//button[@ng-disabled='waitingForAuth || !signUpForm.$valid || signUpForm.$submitted || signUpForm.$pristine']"));
 			driver.findElement(By.xpath("//button[@ng-disabled='waitingForAuth || !signUpForm.$valid || signUpForm.$submitted || signUpForm.$pristine']")).click();
+			waitForElementToBeAppear(By.xpath("//h2[text()='Let’s Set up Your Profile']"));
+			if(driver.findElement(By.xpath("//h2[text()='Let’s Set up Your Profile']")).isDisplayed())
+			{
+				String userdetail = driver.findElement(By.xpath("//input[@ng-model='user.username']")).getText();
+				driver.get("https://www.bandlab.com/"+userdetail+"");
+			}
+			staticWait();
 		}catch(Exception exception) {
 			exception.printStackTrace();
 			tearDown();
 		}
 	}
 
-	public void setUpNewUserProfileWithDeaultDetail() throws Exception {
+	public void update_username_of_created_user(String username) throws Exception {
 		try {
-			staticWait();
-			driver.findElement(By.xpath("//button[text()=' Continue ' and @class='scs xl expand' and @ng-disabled='!completeProfileForm.$valid']")).click();
-			staticWait();
-			driver.findElement(By.xpath("(//button[text()=' Continue ' and @class='scs xl expand' and @ng-click='nextStep()'])[1]")).click();
-			staticWait();
-			driver.findElement(By.xpath("//label[@for='skill-other']/span[text()='Other']")).click();
-			staticWait();
-			driver.findElement(By.xpath("//button[text()=' Continue ' and @class='scs xl expand' and @ng-disabled='!hasSelectedTags(skills)']")).click();
-			staticWait();
-			driver.findElement(By.xpath("//label[@for='genre-other']/span[text()='Other']")).click();
-			staticWait();
-			driver.findElement(By.xpath("//button[@ng-disabled='!hasSelectedTags(genres) || completeProfileForm.$submitted']")).click();
-			staticWait();
-			driver.findElement(By.xpath("//a[@ng-class='{ highlight : videoState.seconds > 33.6 && videoState.seconds < 37.6 }']")).click();
+			waitForElementToBeAppear(By.xpath("(//a[@ui-sref='user.feed(::{ username: vm.user.username })'])[1]"));
+			waitForElementToBeClickable(By.xpath("(//a[@ui-sref='user.feed(::{ username: vm.user.username })'])[1]"));
+			driver.findElement(By.xpath("(//a[@ui-sref='user.feed(::{ username: vm.user.username })'])[1]")).click();
+			waitForElementToBeAppear(By.xpath("//a[text()=' Update Profile ']"));
+			waitForElementToBeClickable(By.xpath("//a[text()=' Update Profile ']"));
+			driver.findElement(By.xpath("//a[text()=' Update Profile ']")).click();
+			waitForElementToBeAppear(By.xpath("//a[@href='/settings/account']"));
+			driver.findElement(By.xpath("//a[@href='/settings/account']")).click();
+			waitForElementToBeAppear(By.xpath("//input[@ng-model='user.username']"));
+			driver.findElement(By.xpath("//input[@ng-model='user.username']")).clear();
+			driver.findElement(By.xpath("//input[@ng-model='user.username']")).sendKeys(username);
+			waitForElementToBeAppear(By.xpath("//input[@ng-disabled='!accountForm.$valid || accountForm.$pristine' and @value='Update']"));
+			waitForElementToBeClickable(By.xpath("//input[@ng-disabled='!accountForm.$valid || accountForm.$pristine' and @value='Update']"));
+			driver.findElement(By.xpath("//input[@ng-disabled='!accountForm.$valid || accountForm.$pristine' and @value='Update']")).click();
 			staticWait();
 		}catch(Exception exception) {
 			exception.printStackTrace();
@@ -89,8 +93,8 @@ public class ActionMethods extends BaseMethods{
 	public void navigateToLogIn() throws Exception {
 
 		try {
+			waitForElementToBeAppear(By.xpath("(//a[@href='/login'])[1]"));
 			driver.findElement(By.xpath("(//a[@href='/login'])[1]")).click();
-			staticWait();
 		}catch(Exception exception) {
 			exception.printStackTrace();
 			tearDown();
@@ -99,8 +103,11 @@ public class ActionMethods extends BaseMethods{
 
 	public void enterLoginDetails(String email,String password) throws Exception {
 		try {
+			waitForElementToBeAppear(By.xpath("//h1[@class='auth-title' and text()='Log In']"));
 			assertTrue(driver.findElement(By.xpath("//h1[@class='auth-title' and text()='Log In']")).isDisplayed());
+			waitForElementToBeAppear(By.xpath("//input[@aria-label='Username or Email']"));
 			driver.findElement(By.xpath("//input[@aria-label='Username or Email']")).sendKeys(email);
+			waitForElementToBeAppear(By.xpath("//input[@aria-label='Password']"));
 			driver.findElement(By.xpath("//input[@aria-label='Password']")).sendKeys(password);
 		}catch(Exception exception) {
 			exception.printStackTrace();
@@ -110,7 +117,9 @@ public class ActionMethods extends BaseMethods{
 
 	public void sugmitSignIn() throws Exception {
 		try {
+			waitForElementToBeAppear(By.xpath("//button[text()='Log In']"));
 			driver.findElement(By.xpath("//button[text()='Log In']")).click();
+			staticWait();
 		}catch(Exception exception) {
 			exception.printStackTrace();
 			tearDown();
@@ -118,12 +127,15 @@ public class ActionMethods extends BaseMethods{
 	}
 	public void createShout() throws Exception {
 		try {
-			staticWait();
+			waitForElementToBeAppear(By.xpath("//a[@class='button cta single last button-create']/span[text()='Create']"));
 			waitForElementToBeClickable(By.xpath("//a[@class='button cta single last button-create']/span[text()='Create']"));
 			driver.findElement(By.xpath("//a[@class='button cta single last button-create']/span[text()='Create']")).click();
+			waitForElementToBeAppear(By.xpath("//div[@class='mega-dropdown-nav-item-label' and text()=' Create Shout ']"));
 			driver.findElement(By.xpath("//div[@class='mega-dropdown-nav-item-label' and text()=' Create Shout ']")).click();
 			staticWait();			
+			waitForElementToBeAppear(By.xpath("//div[@class='photo-booth-round-button photo-booth-snapshot-button']"));
 			driver.findElement(By.xpath("//div[@class='photo-booth-round-button photo-booth-snapshot-button']")).click();
+			waitForElementToBeAppear(By.xpath("//span[text()='Publish']"));
 			driver.findElement(By.xpath("//span[text()='Publish']")).click(); 
 			staticWait(); // wait till post got uploaded successfully 
 		}catch(Exception exception) {
@@ -134,30 +146,29 @@ public class ActionMethods extends BaseMethods{
 
 	public void followUser(String username) throws Exception {
 		try {
-			staticWait();
 			if(driver.findElement(By.xpath("//h2[text()='Let’s Set up Your Profile']")).isDisplayed())
 			{
 				String userdetail = driver.findElement(By.xpath("//input[@ng-model='user.username']")).getText();
 				driver.get("https://www.bandlab.com/"+userdetail+"");
 			}
-			staticWait();
-			driver.findElement(By.xpath("//input[@placeholder='Search BandLab']")).sendKeys(username);
-			driver.findElement(By.xpath("//button[@ng-disabled='!searchForm.$valid']")).click();
-			staticWait();
-			driver.findElement(By.xpath("//a/span[text()='Users']")).click();
-			staticWait();
-			driver.findElement(By.xpath("//div[@class='profile-tile-title']/a[@href='/"+username+"'] /ancestor::div[@class='profile-tile-body']//..//button[@class='follow follow-text hollow']")).click();
-		}catch(Exception exception) {
+			driver.get("https://www.bandlab.com/"+username+"");
+			waitForElementToBeAppear(By.xpath("//button[@ng-show='!vm.user.isBlockingMe && !vm.user.isBlocked && !vm.user.isFollower']"));
+			driver.findElement(By.xpath("//button[@ng-show='!vm.user.isBlockingMe && !vm.user.isBlocked && !vm.user.isFollower']")).click();
+			waitForElementToBeAppear(By.xpath("//span[@ng-show='vm.user.isFollower && !vm.isOwnProfile' and text()=' Following ']"));
+			}
+		catch(Exception exception) {
 			exception.printStackTrace();
 			tearDown();
 		}
 	}
 
 	public void verifyUserShoutAvailableInFeed(String username) throws Exception {
-		try {
-			staticWait();
+		try {			
+			waitForElementToBeAppear(By.xpath("//a[@href='/feed']"));
 			driver.findElement(By.xpath("//a[@href='/feed']")).click();
+			driver.get(driver.getCurrentUrl());
 			staticWait();
+			waitForElementToBeAppear(By.xpath("//a[@href='/"+username+"']/ancestor::div[@class='post-card-header-title']/span[text()='  posted a photo ']"));
 			driver.findElement(By.xpath("//a[@href='/"+username+"']/ancestor::div[@class='post-card-header-title']/span[text()='  posted a photo ']")).isDisplayed();
 		}catch(Exception exception) {
 			exception.printStackTrace();
@@ -172,10 +183,13 @@ public class ActionMethods extends BaseMethods{
 
 	public void userLogOut() throws Exception {
 		try {
+			driver.findElement(By.xpath("//a[@href='/feed']")).click();
+			waitForElementToBeAppear(By.xpath("//div[@class='top-bar-profile-picture']"));
 			waitForElementToBeClickable(By.xpath("//div[@class='top-bar-profile-picture']"));
 			driver.findElement(By.xpath("//div[@class='top-bar-profile-picture']")).click();
+			waitForElementToBeAppear(By.xpath("//a[text()=' Log out ']"));
+			waitForElementToBeClickable(By.xpath("//a[text()=' Log out ']"));
 			driver.findElement(By.xpath("//a[text()=' Log out ']")).click();
-			staticWait();
 		}catch(Exception exception) { 
 			exception.printStackTrace();
 			tearDown();

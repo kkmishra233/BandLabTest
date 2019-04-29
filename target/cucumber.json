@@ -1,0 +1,396 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#Author: kkbit233@gmail.com"
+      }
+    ],
+    "line": 3,
+    "elements": [
+      {
+        "line": 4,
+        "name": "verify user able to signup",
+        "description": "",
+        "id": "i-want-to-add-user-in-domain-who-expected-to-be-followed-by-his/her-fans;verify-user-able-to-signup",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 8341715000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I navigate to bandlab homepage",
+            "match": {
+              "location": "BaseMapper.i_navigate_to_bandlab_homepage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 173830600,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "i click on Signup button",
+            "match": {
+              "location": "BaseMapper.i_click_on_Signup_button()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 793186600,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "fill create user details with \"test\" , \"master12@rediffmail.com\" and \"Password\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "test",
+                  "offset": 31
+                },
+                {
+                  "val": "master12@rediffmail.com",
+                  "offset": 40
+                },
+                {
+                  "val": "Password",
+                  "offset": 70
+                }
+              ],
+              "location": "BaseMapper.fill_create_user_details_with_and(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 6723564400,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "submit Signup form",
+            "match": {
+              "location": "BaseMapper.submit_Signup_form()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 25358287900,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "update username of created user as \"kkbit233master12\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "kkbit233master12",
+                  "offset": 36
+                }
+              ],
+              "location": "BaseMapper.update_username_of_created_user_as(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5754000,
+              "error_message": "java.lang.NullPointerException\r\n\tat BandLab.TestUserShout.BaseFramework.BaseMethods.tearDown(BaseMethods.java:47)\r\n\tat BandLab.TestUserShout.BusinessAction.ActionMethods.userLogOut(ActionMethods.java:204)\r\n\tat BandLab.TestUserShout.BaseMapper.BaseMapper.logout(BaseMapper.java:67)\r\n\tat ✽.Then logout(AddUserWhoExpectedToFollowByFans.feature:10)\r\n",
+              "status": "failed"
+            },
+            "line": 10,
+            "name": "logout",
+            "match": {
+              "location": "BaseMapper.logout()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "verify user able to create a shout",
+        "description": "",
+        "id": "i-want-to-add-user-in-domain-who-expected-to-be-followed-by-his/her-fans;verify-user-able-to-create-a-shout",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5697200700,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I navigate to bandlab homepage",
+            "match": {
+              "location": "BaseMapper.i_navigate_to_bandlab_homepage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 720179800,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "now navigate to login page and perform login operation with user credentials i.e. \"master12@rediffmail.com\" and \"Password\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "master12@rediffmail.com",
+                  "offset": 83
+                },
+                {
+                  "val": "Password",
+                  "offset": 113
+                }
+              ],
+              "location": "BaseMapper.now_navigate_to_login_page_and_perform_login_operation_with_user_credentials_i_e_and(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 20762633500,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "create Shout for followers",
+            "match": {
+              "location": "BaseMapper.create_Shout_for_followers()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3663600,
+              "error_message": "java.lang.NullPointerException\r\n\tat BandLab.TestUserShout.BaseFramework.BaseMethods.tearDown(BaseMethods.java:47)\r\n\tat BandLab.TestUserShout.BusinessAction.ActionMethods.userLogOut(ActionMethods.java:204)\r\n\tat BandLab.TestUserShout.BaseMapper.BaseMapper.logout(BaseMapper.java:67)\r\n\tat ✽.Then logout(AddUserWhoExpectedToFollowByFans.feature:17)\r\n",
+              "status": "failed"
+            },
+            "line": 17,
+            "name": "logout",
+            "match": {
+              "location": "BaseMapper.logout()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "I want to add user in domain who expected to be followed by his/her fans",
+    "description": "",
+    "id": "i-want-to-add-user-in-domain-who-expected-to-be-followed-by-his/her-fans",
+    "keyword": "Feature",
+    "uri": "AddUserWhoExpectedToFollowByFans.feature",
+    "tags": [
+      {
+        "line": 2,
+        "name": "@test"
+      }
+    ]
+  },
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#Author: kkbit233@gmail.com"
+      }
+    ],
+    "line": 3,
+    "elements": [
+      {
+        "line": 4,
+        "name": "i want to signup a fan user to follow another user",
+        "description": "",
+        "id": "i-want-to-add-user-in-domain-who-expected-to-be-follow-another-user-and-verify-he/she-see-the-shout-in-his/her-feed;i-want-to-signup-a-fan-user-to-follow-another-user",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 8826738000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I navigate to bandlab homepage",
+            "match": {
+              "location": "BaseMapper.i_navigate_to_bandlab_homepage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 240569300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "i click on Signup button",
+            "match": {
+              "location": "BaseMapper.i_click_on_Signup_button()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 733892600,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "fill create user details with \"test\" , \"fan12@rediffmail.com\" and \"Password\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "test",
+                  "offset": 31
+                },
+                {
+                  "val": "fan12@rediffmail.com",
+                  "offset": 40
+                },
+                {
+                  "val": "Password",
+                  "offset": 67
+                }
+              ],
+              "location": "BaseMapper.fill_create_user_details_with_and(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 7521063100,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "submit Signup form",
+            "match": {
+              "location": "BaseMapper.submit_Signup_form()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3656618300,
+              "error_message": "java.lang.NullPointerException\r\n\tat BandLab.TestUserShout.BaseFramework.BaseMethods.tearDown(BaseMethods.java:47)\r\n\tat BandLab.TestUserShout.BusinessAction.ActionMethods.closeBrowser(ActionMethods.java:190)\r\n\tat BandLab.TestUserShout.BaseMapper.BaseMapper.logout(BaseMapper.java:68)\r\n\tat ✽.Then logout(LogInWithUserAndvalidateShoutInFeedSection.feature:9)\r\n",
+              "status": "failed"
+            },
+            "line": 9,
+            "name": "logout",
+            "match": {
+              "location": "BaseMapper.logout()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 11,
+        "name": "verify user able to follow a user and see the shout in his/her feed",
+        "description": "",
+        "id": "i-want-to-add-user-in-domain-who-expected-to-be-follow-another-user-and-verify-he/she-see-the-shout-in-his/her-feed;verify-user-able-to-follow-a-user-and-see-the-shout-in-his/her-feed",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6612202000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I navigate to bandlab homepage",
+            "match": {
+              "location": "BaseMapper.i_navigate_to_bandlab_homepage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 664190000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I login with my credentials i.e. \"fan12@rediffmail.com\" and \"Password\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "fan12@rediffmail.com",
+                  "offset": 34
+                },
+                {
+                  "val": "Password",
+                  "offset": 61
+                }
+              ],
+              "location": "BaseMapper.i_login_with_my_credentials_i_e_and(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 25900229000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "follow user \"kkbit233master12\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "kkbit233master12",
+                  "offset": 13
+                }
+              ],
+              "location": "BaseMapper.follow_user(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 61040542400,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "navigate to feed page and verify the \"kkbit233master12\" users\u0027 shout is available in my feed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "kkbit233master12",
+                  "offset": 38
+                }
+              ],
+              "location": "BaseMapper.navigate_to_feed_page_and_verify_the_users_shout_is_available_in_my_feed(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 4529500,
+              "error_message": "java.lang.NullPointerException\r\n\tat BandLab.TestUserShout.BaseFramework.BaseMethods.tearDown(BaseMethods.java:47)\r\n\tat BandLab.TestUserShout.BusinessAction.ActionMethods.userLogOut(ActionMethods.java:204)\r\n\tat BandLab.TestUserShout.BaseMapper.BaseMapper.logout(BaseMapper.java:67)\r\n\tat ✽.And logout(LogInWithUserAndvalidateShoutInFeedSection.feature:16)\r\n",
+              "status": "failed"
+            },
+            "line": 16,
+            "name": "logout",
+            "match": {
+              "location": "BaseMapper.logout()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "I want to add user in domain who expected to be follow another user and verify he/she see the shout in his/her feed",
+    "description": "",
+    "id": "i-want-to-add-user-in-domain-who-expected-to-be-follow-another-user-and-verify-he/she-see-the-shout-in-his/her-feed",
+    "keyword": "Feature",
+    "uri": "LogInWithUserAndvalidateShoutInFeedSection.feature",
+    "tags": [
+      {
+        "line": 2,
+        "name": "@test"
+      }
+    ]
+  }
+]

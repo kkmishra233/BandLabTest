@@ -42,6 +42,11 @@ public class BaseMapper {
 	public void submit_Signup_form() throws Throwable {
 		actions.SignUp();
 	}
+	
+	@Given("^update username of created user as \"([^\"]*)\"$")
+	public void update_username_of_created_user_as(String arg1) throws Throwable {
+		actions.update_username_of_created_user(arg1);
+	}
 
 	@When("^now navigate to login page and perform login operation with user credentials i\\.e\\. \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void now_navigate_to_login_page_and_perform_login_operation_with_user_credentials_i_e_and(String arg1, String arg2) throws Throwable {
