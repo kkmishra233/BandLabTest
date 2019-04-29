@@ -11,7 +11,8 @@ https://github.com/kkmishra233/BandLabTest
 
 #Setup :-
 
-modify test data in jherkins file present at location : src/test/Resources/*.feature
+1.modify test data in jherkins file present at location : src/test/Resources/*.feature
+2.By default this suite will run once with default test data
 
 #Run-suite :-
 
