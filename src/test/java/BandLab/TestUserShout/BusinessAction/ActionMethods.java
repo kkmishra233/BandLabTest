@@ -167,6 +167,7 @@ public class ActionMethods extends BaseMethods{
 		try {			
 			waitForElementToBeAppear(By.xpath("//a[@href='/feed']"));
 			driver.findElement(By.xpath("//a[@href='/feed']")).click();
+			staticWait();
 			driver.get(driver.getCurrentUrl());
 			staticWait();
 			waitForElementToBeAppear(By.xpath("//a[@href='/"+username+"']/ancestor::div[@class='post-card-header-title']/span[text()='  posted a photo ']"));
