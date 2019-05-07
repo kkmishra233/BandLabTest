@@ -152,6 +152,7 @@ public class ActionMethods extends BaseMethods{
 				driver.get("https://www.bandlab.com/"+userdetail+"");
 			}
 			driver.get("https://www.bandlab.com/"+username+"");
+			staticWait();
 			waitForElementToBeAppear(By.xpath("//button[@ng-show='!vm.user.isBlockingMe && !vm.user.isBlocked && !vm.user.isFollower']"));
 			driver.findElement(By.xpath("//button[@ng-show='!vm.user.isBlockingMe && !vm.user.isBlocked && !vm.user.isFollower']")).click();
 			waitForElementToBeAppear(By.xpath("//span[@ng-show='vm.user.isFollower && !vm.isOwnProfile' and text()=' Following ']"));
